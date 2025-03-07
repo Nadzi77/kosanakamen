@@ -1,0 +1,525 @@
+/* Základné nastavenia */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
+}
+
+/* Hlavička */
+header {
+  background: black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #060606;
+    padding: 1rem;
+    z-index: 100;
+    transition: transform 0.3s ease;
+
+    &.hidden {
+      transform: translateY(-100%);
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      li {
+        a {
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 1.1rem;
+          position: relative;
+          padding-bottom: 5px;
+          text-transform: uppercase;
+          transition: color 0.3s;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fcaf3b;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: #fcaf3b;
+
+            &::after {
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-image-container {
+    width: 100%;
+    overflow: hidden;
+
+    .main-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-top: 30px;
+
+      @media (max-width: 768px) {
+        height: 24rem;
+        object-position: center;
+      }
+
+      @media (max-width: 540px) {
+        object-position: calc(50% + 80px) center;
+      }
+    }
+  }
+}
+
+/* Sekcie */
+section {
+  width: 100%;
+  padding: 4rem clamp(20px, calc(50% - 600px), 50%);
+
+  & h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #fcaf3b;
+  }
+
+  & p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  &.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+
+    & h2 {
+      color: #fcaf3b;
+    }
+  }
+
+  &.light {
+    background-color: #c3c3c3;
+    color: #000000;
+
+    & h2 {
+      color: #8e5500;
+    }
+  }
+
+  &.lighter {
+    background-color: #ffffff;
+    color: #000000;
+
+    & h2 {
+      color: #8e5500;
+    }
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+
+    .event-item {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 10px;
+
+
+      .event-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        color: #333;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .band-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .member {
+      text-align: center;
+      flex: 0 1 250px;
+
+      .member-photo {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          transform: translateY(-20px) scale(1.2);
+        }
+      }
+
+      .member-icons {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        /* Tooltip */
+        .icon-wrapper {
+          position: relative;
+          display: inline-block;
+          transition: all 0.3s ease;
+          &:hover {
+            transform: translateY(-5px) scale(1.2);
+          }
+
+          &::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+            margin-top: 5px;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: calc(100% - 3px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-bottom-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+          }
+
+          &:hover::after,
+          &:hover::before {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
+      h3 {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .single-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-direction: row;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .single-text, .single-media {
+      flex: 1;
+      width: 50%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  /* Koncerty */
+  &#gigs {
+    ul {
+      list-style: none;
+    }
+
+    li {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #fcaf3b25;
+      border-left: 3px solid #fcaf3b;
+    }
+  }
+
+  &#contact {
+    text-align: center;
+
+    & h2 {
+      margin-bottom: 3rem;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin: 2rem auto;
+      max-width: 800px;
+
+      .contact-item {
+        flex: 1;
+
+        h3 {
+          color: #8e5500;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          font-size: 1.2rem;
+          position: relative;
+          padding-bottom: 2px;
+          transition: color 0.3s ease;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8e5500;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: #8e5500;
+
+            &::after {
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
+          }
+        }
+
+        i {
+          display: block;
+          margin: 1rem 0;
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
+
+  &#social-media {
+    padding: 6rem 0;
+    text-align: center;
+
+    h3 {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      .social-icon {
+        i {
+          color: #ffffff;
+          width: 40px;
+          height: 40px;
+          font-size: 2rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-3px) scale(1.3);
+
+            &.fa-facebook {
+              color: #4267B2;
+            }
+
+            &.fa-instagram {
+              color: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+              background: -webkit-linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            &.fa-youtube {
+              color: #d70202;
+            }
+
+            &.fa-envelope {
+              color: #a8a8a8;
+            }
+
+            &.fa-spotify {
+              color: #1DB954;
+            }
+
+            &.fa-apple {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  .modal-content {
+    display: none;
+    position: relative;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+    max-width: min(90%, 800px);
+    width: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+
+    h2 {
+      margin-bottom: 30px;
+      color: #fcaf3b;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #000000;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      right: 22px;
+      top: 0;
+      color: #000000;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        color: #fcaf3b;
+      }
+    }
+  }
+}
+
+/* Responzívny dizajn */
+@media (max-width: 768px) {
+  header {
+    nav {
+      ul {
+        /* flex-direction: column; */
+        align-items: center;
+        gap: 0.6rem;
+      }
+    }
+
+    & h1 {
+      font-size: 2.5rem;
+    }
+
+    & .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
+  section {
+    padding: 2rem 1rem;
+
+    & h2 {
+      font-size: 2rem;
+    }
+
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .modal .modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+}

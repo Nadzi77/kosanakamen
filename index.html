@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosa na Kameň</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <script src="https://kit.fontawesome.com/7c3a61508f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Domov</a></li>
+        <li><a href="#about-us">O nás</a></li>
+        <li><a href="#gigs">Koncerty</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div id="home" class="main-image-container">
+      <img src="assets/images/Titulka.png" alt="Kosa na Kameň - Slovenská pop-rocková kapela" class="main-image">
+    </div>
+  </header>
+
+  <section id="events-offer" class="lighter">
+    <div class="events-grid">
+      <div class="event-item">
+        <img src="assets/icons/music-festival.png" alt="Festivaly" class="event-icon">
+        <h3>Festivaly</h3>
+        <p>Roztancujeme celé publikum energickou show plnou skvelej hudby!</p>
+      </div>
+
+      <div class="event-item">
+        <img src="assets/icons/carousel.png" alt="Obecné podujatia" class="event-icon">
+        <h3>Obecné podujatia</h3>
+        <p>Vytvoríme nezabudnuteľnú atmosféru na vašich obecných slávnostiach či hodoch!</p>
+      </div>
+
+      <div class="event-item">
+        <img src="assets/icons/conference.png" alt="Firemné podujatia" class="event-icon">
+        <h3>Firemné podujatia</h3>
+        <p>Oživíme váš večierok či teambuilding živou hudbou a skvelou náladou!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-us" class="light">
+    <div class="band-members">
+      <div class="member">
+        <img src="assets/images/profile-photos/peto.jpg" alt="Člen kapely" class="member-photo" onclick="openModal('peto')">
+        <div class="member-icons">
+          <div class="icon-wrapper" data-tooltip="Spevák">
+            <img src="assets/icons/mic.png" alt="Spevák">
+          </div>
+          <div class="icon-wrapper" data-tooltip="Gitarista">
+            <img src="assets/icons/electric-guitar.png" alt="Gitarista">
+          </div>
+        </div>
+        <h3>PETER PRIBILINEC</h3>
+      </div>
+
+      <div class="member">
+        <img src="assets/images/profile-photos/david.jpg" alt="Člen kapely" class="member-photo" onclick="openModal('david')">
+        <div class="member-icons">
+          <div class="icon-wrapper" data-tooltip="Spevák">
+            <img src="assets/icons/mic.png" alt="Spevák">
+          </div>
+          <div class="icon-wrapper" data-tooltip="Basgitarista">
+            <img src="assets/icons/bass-guitar.png" alt="Basgitarista">
+          </div>
+        </div>
+        <h3>DÁVID MAJLIŠ</h3>
+      </div>
+
+      <div class="member">
+        <img src="assets/images/profile-photos/matus.jpg" alt="Člen kapely" class="member-photo" onclick="openModal('matus')">
+        <div class="member-icons">
+          <div class="icon-wrapper" data-tooltip="Klávesák">
+            <img src="assets/icons/piano.png" alt="Klávesák">
+          </div>
+          <div class="icon-wrapper" data-tooltip="Vokalista">
+            <img src="assets/icons/mic.png" alt="Vokalista">
+          </div>
+        </div>
+        <h3>MATÚŠ NADŽADY</h3>
+      </div>
+
+      <div class="member">
+        <img src="assets/images/profile-photos/lukas.jpg" alt="Člen kapely" class="member-photo" onclick="openModal('lukas')">
+        <div class="member-icons">
+          <div class="icon-wrapper" data-tooltip="Bubeník">
+            <img src="assets/icons/drums.png" alt="Bubeník">
+          </div>
+          <div class="icon-wrapper" data-tooltip="Masér">
+            <img src="assets/icons/massage.png" alt="Masér">
+          </div>
+        </div>
+        <h3>LUKÁŠ FARBAR</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="last-single" class="dark">
+    <div class="single-container">
+      <div class="single-text">
+        <h2>Posledný singel</h2>
+        <p>Vypočujte si náš posledný singel „Svet sa točí dokola“!</p>
+      </div>
+      <div class="single-media">
+        <iframe
+          src="https://open.spotify.com/embed/track/2cbspoYtmyLUSQnuK53vM7?utm_source=generator"
+          style="border-radius:12px" width="100%" height="152" frameBorder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.youtube.com/embed/5o8YYe8beMg?si=snBt7xzXg4K11CFh&amp;controls=0"
+      width="100%" style="aspect-ratio: 16/9;" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+    ></iframe>
+  </section>
+
+
+  <section id="another-single" class="light">
+    <div class="single-container">
+      <div class="single-text">
+        <h2>Niečo rockovejšie</h2>
+        <p>K ďalšej rockovejšej skladbe „Dokonalý Blázon“ sa nám podarilo nahrať videoklip v areáli Rozálka</p>
+      </div>
+      <div class="single-media">
+        <iframe
+          title="Spotify Embed: Svet sa točí dokola"
+          src="https://open.spotify.com/embed/track/3IuO0PJvkWKcgov4iQoG87?utm_source=generator"
+          style="border-radius:12px" width="100%" height="152" frameBorder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.youtube.com/embed/H2Az11mqLcs?si=CoW1m090dVA325Oh&amp;controls=0"
+      width="100%" style="aspect-ratio: 16/9;" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <section id="promo-video" class="dark">
+    <div class="single-container">
+      <div class="single-text">
+        <h2>Promo video</h2>
+      </div>
+    </div>
+    <iframe
+      src="https://www.youtube.com/embed/0EJeUMkhDpo?si=i51wp7Vp1dNrYS2x&amp;controls=0"
+      width="100%" style="aspect-ratio: 16/9;" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <section id="gigs" class="lighter">
+    <h2>Koncerty</h2>
+    <p>Najbližšie koncerty:</p>
+    <ul>
+      <li>24.5.2025 - Súkromná akcia, svadba, Liptov</li>
+      <li>28.6.2025 - Súkromná akcia, svadba, Pajštún</li>
+      <li>20.9.2025 - Súkromná akcia, svadba, Oslany</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="light">
+    <h2>Kontaktujte nás</h2>
+    <div class="contact-container">
+      <div class="contact-item">
+        <h3>Telefón / WhatsApp</h3>
+        <a href="tel:+421910293949">+421 910 293 949</a>
+        <i class="fa-solid fa-phone"></i>
+      </div>
+      <div class="contact-item">
+        <h3>E-mail</h3>
+        <a href="mailto:kosanakamenofficial@gmail.com">kosanakamenofficial@gmail.com</a>
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="social-media" class="dark center">
+    <h2>Sledujte naše sociálne siete</h2>
+    <h3 class="subtitle">...aby vám nič neuniklo...</h3>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/KosanaKamen" target="_blank" class="social-icon">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/kosanakamenofficial" target="_blank" class="social-icon">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/@KosaNaKamen" target="_blank" class="social-icon">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a href="https://music.apple.com/sk/artist/kosa-na-kame%C5%88/1660211919" target="_blank" class="social-icon">
+        <i class="fa-brands fa-apple"></i>
+      </a>
+      <a href="https://open.spotify.com/artist/71ohqScjqadiIPGJcbeJpD" target="_blank" class="social-icon">
+        <i class="fa-brands fa-spotify"></i>
+      </a>
+      <a href="mailto:kosanakamenofficial@gmail.com" class="social-icon">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+  </section>
+
+  <div id="member-modal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h2 id="modal-name"></h2>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
+  <footer style="color: #8d8d8d; font-size: smaller;">
+    <p>© 2025 Kosa na Kameň</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
